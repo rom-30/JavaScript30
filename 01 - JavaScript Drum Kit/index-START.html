@@ -59,7 +59,8 @@
 
 <script>
   const cl = console.log;
-  document.addEventListener("keydown", (event) => {
+
+  const playSound = (event) => {
     // use data-key to retrieve audioS
      const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
      const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
@@ -67,19 +68,18 @@
      audio.currentTime = 0; //
      audio.play();
      key.classList.add("playing");
-    });
+    }
 
-  function removeTransition(event) {
-    if(event.propertyName !== 'transform') return;
-    cl(this);
-    this.classList.remove('playing');
-  };
-
+  document.addEventListener("keydown", playSound);
 
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => key.addEventListener('transitionend', removeTransition
   ));
 
+  function removeTransition(event) {
+    if(event.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+  };
 
 </script>
 
