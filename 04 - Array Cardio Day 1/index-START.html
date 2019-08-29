@@ -70,7 +70,14 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-
+    // const four = people.filter( person => people.indexOf(person) < 4);
+    // ct(four);
+    const peopleSortedAplhabetically = people.map( person => person.split(","))
+                                        .map( ele => [ele[0], ele[1]] = [ele[1], ele[0]])
+                                        .sort()
+                                        .map( ele => [ele[0], ele[1]] = [ele[1], ele[0]])
+                                        .map(ele => ele.join());
+    ct(peopleSortedAplhabetically);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
