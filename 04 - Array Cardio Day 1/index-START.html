@@ -70,30 +70,30 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-    // const four = people.filter( person => people.indexOf(person) < 4);
-    // ct(four);
     const peopleSortedAplhabetically = people.map( person => person.split(","))
                                         .map( ele => [ele[0], ele[1]] = [ele[1], ele[0]])
                                         .sort()
                                         .map( ele => [ele[0], ele[1]] = [ele[1], ele[0]])
                                         .map(ele => ele.join());
-    // ct(peopleSortedAplhabetically);
     const two = people.filter( person => people.indexOf(person) < 2);
-        // ct(two);
     const alpha = two.sort((lastOne, nextOne) => {
       const [aLast, aFirst] = lastOne.split(', ');
-      ct([aLast, aFirst]);
+      // ct([aLast, aFirst]);
       const [bLast, bFirst] = nextOne.split(', ');
-      ct([bLast, bFirst]);
-
+      // ct([bLast, bFirst]);
       return aLast - bLast;
     });
 
-    ct(alpha);
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    let ar = []
+    const instance = data.reduce((vehicles, vehicle) => {
+      vehicle in vehicles ? vehicles[vehicle]++: vehicles[vehicle] = 1;
+      return vehicles
+      }, {})
 
+    cl(instance)
   </script>
 </body>
 </html>
