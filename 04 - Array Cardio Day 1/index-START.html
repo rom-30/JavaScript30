@@ -77,8 +77,19 @@
                                         .sort()
                                         .map( ele => [ele[0], ele[1]] = [ele[1], ele[0]])
                                         .map(ele => ele.join());
-    ct(peopleSortedAplhabetically);
+    // ct(peopleSortedAplhabetically);
+    const two = people.filter( person => people.indexOf(person) < 2);
+        // ct(two);
+    const alpha = two.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      ct([aLast, aFirst]);
+      const [bLast, bFirst] = nextOne.split(', ');
+      ct([bLast, bFirst]);
 
+      return aLast - bLast;
+    });
+
+    ct(alpha);
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
