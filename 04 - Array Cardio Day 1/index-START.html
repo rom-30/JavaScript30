@@ -88,12 +88,22 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
     let ar = []
-    const instance = data.reduce((vehicles, vehicle) => {
+    const instances = data.reduce((vehicles, vehicle) => {
       vehicle in vehicles ? vehicles[vehicle]++: vehicles[vehicle] = 1;
       return vehicles
       }, {})
 
-    cl(instance)
+    cl(instances)
+
+    const transportation = data.reduce((obj, item) => {
+      if(!obj[item]) {
+        obj[item] = 0
+      }
+      obj[item]++;
+      return obj;
+    }, {})
+
+    cl(transportation)
   </script>
 </body>
 </html>
